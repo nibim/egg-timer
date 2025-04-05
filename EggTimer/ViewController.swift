@@ -11,11 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     let eggTimes: [String: Int] = ["Soft": 300, "Medium": 420, "Hard": 720]
     var secondsLeft = 60
-    
+    var timer = Timer()
     @IBAction func hardnessSelected(_ sender: UIButton) {
+        timer.invalidate()
         let hardness = sender.currentTitle!
         secondsLeft = eggTimes[hardness]!
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
     }
     @objc func updateCounter() {
         //example functionality
