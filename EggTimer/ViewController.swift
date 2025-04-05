@@ -9,15 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let softTime = 5
-    let mediumTime = 7
-    let hardTime = 12
+    let eggTimes: [String: Int] = ["Soft": 300, "Medium": 420, "Hard": 720]
+    var secondsLeft = 60
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
         let hardness = sender.currentTitle!
-        
+        secondsLeft = eggTimes[hardness]!
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
     }
-    
+    @objc func updateCounter() {
+        //example functionality
+        if secondsLeft > 0 {
+            print("\(secondsLeft) seconds")
+            secondsLeft -= 1
+        }
+    }
 
 }
