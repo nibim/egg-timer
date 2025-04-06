@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -121,6 +122,21 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJN-th-c5K" userLabel="Timer View">
                                         <rect key="frame" x="0.0" y="599.33333333333337" width="400" height="260.66666666666663"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RBp-oE-uWZ">
+                                                <rect key="frame" x="0.0" y="128" width="400" height="6"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="ZDP-LQ-0IM"/>
+                                                </constraints>
+                                                <color key="progressTintColor" systemColor="systemOrangeColor"/>
+                                                <color key="trackTintColor" red="0.41176470590000003" green="0.45882352939999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </progressView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="RBp-oE-uWZ" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="ShC-Rm-rTD"/>
+                                            <constraint firstItem="RBp-oE-uWZ" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="r4G-Fm-wdh"/>
+                                            <constraint firstAttribute="trailing" secondItem="RBp-oE-uWZ" secondAttribute="trailing" id="yF5-3w-QvU"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -135,6 +151,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cookedLevel" destination="RBp-oE-uWZ" id="nxJ-gQ-m9E"/>
                         <outlet property="titleLable" destination="XLm-5r-pSP" id="TZP-wV-jEl"/>
                     </connections>
                 </viewController>
@@ -147,5 +164,8 @@
         <image name="hard_egg" width="287.66665649414062" height="366.33334350585938"/>
         <image name="medium_egg" width="288" height="363.33334350585938"/>
         <image name="soft_egg" width="287" height="365.33334350585938"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
