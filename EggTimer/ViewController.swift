@@ -17,7 +17,14 @@ class ViewController: UIViewController {
     var totalTime = 0
     var secondsPassed = 0
     var timer = Timer()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        cookedLevel.isHidden = true  // Set initial progress to 0
+    }
+    
     @IBAction func hardnessSelected(_ sender: UIButton) {
+        cookedLevel.isHidden = false
         cookedLevel.progress = 0.0
         secondsPassed = 0
         timer.invalidate()
